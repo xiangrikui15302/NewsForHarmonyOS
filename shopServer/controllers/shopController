@@ -1,0 +1,26 @@
+const shopData = require('../models/shopData')
+const newData = require('../models/newData')
+const categoryData = require('../models/categoryData')
+
+exports.get_shop_list = (req, res) => {
+    let pageNo = req.query.pageNo || 1
+    let pageSize = req.query.pageSize || 3
+
+    let from = (pageNo - 1) * pageSize
+    let end = pageNo * pageSize
+    res.send(shopData.data.slice(from, end))
+}
+
+exports.get_new_list = (req, res) => {
+    let pageNo = req.query.pageNo || 1
+    let pageSize = req.query.pageSize || 10
+
+    let from = (pageNo - 1) * pageSize
+    let end = pageNo * pageSize
+    res.send(newData.data.slice(from, end))
+}
+
+exports.get_category_list = (req, res) => {
+
+    res.send(categoryData.data)
+}

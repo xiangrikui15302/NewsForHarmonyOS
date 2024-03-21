@@ -1,8 +1,15 @@
-import NewModel from '../../common/model/NewModel'
+import NewModel from '../../model/NewModel'
+import NewsListViewModel from '../../viewmodel/NewsListViewModel'
 import NewsListItem from './NewsListItem'
 @Component
 export default struct NewsList {
-  @State newsList: NewModel[] = [new NewModel(), new NewModel(), new NewModel()]
+  @Prop categoryId:number
+  @State newsList: NewModel[] = []
+
+  async aboutToAppear(){
+    this.newsList = await NewsListViewModel.getNewsListByCategory(this.categoryId,1)
+  }
+
   build() {
     Row(){
       List(){
@@ -10,7 +17,7 @@ export default struct NewsList {
           this.newsList,
           (news: NewModel,index) => {
             ListItem() {
-              NewsListItem()
+              NewsListItem({newsModel: news})
             }
           }
         )

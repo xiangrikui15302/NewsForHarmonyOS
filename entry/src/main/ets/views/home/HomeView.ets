@@ -1,13 +1,30 @@
 import { CommonConstants } from '../../common/constants/CommonConstants'
+import NewModel from '../../model/NewModel'
+import { NewsCategoryModel } from '../../model/NewsCategoryModel'
+import NewsListViewModel from '../../viewmodel/NewsListViewModel'
 import HomeHeaderView from './HomeHeaderView'
 import NewsList from './NewsList'
-@Preview
 @Component
 export default struct HomeView {
 
-  private tabsArr: string[] = ['推荐', '快讯','深度', '体育','法治','娱乐','国际']
+  @State tabsArr: NewsCategoryModel[] = []
 
-  @State currentIndex: number = 0
+  @State
+  @Watch("refreshCategoryId")
+  currentIndex: number = 0
+  @State categoryId:number = 0
+
+
+  async aboutToAppear(){
+    this.tabsArr = await NewsListViewModel.getAllCategorys()
+    this.refreshCategoryId()
+  }
+
+  refreshCategoryId(){
+    if(this.tabsArr.length > 0){
+      this.categoryId = this.tabsArr[this.currentIndex].id
+    }
+  }
 
   build() {
     Column(){
@@ -16,11 +33,11 @@ export default struct HomeView {
       Tabs(){
         ForEach(
           this.tabsArr,
-          (item:string,index)=>{
+          (item:NewsCategoryModel,index)=>{
             TabContent(){
-              NewsList()
+              NewsList({categoryId: this.categoryId})
             }
-            .tabBar(this.tabBarBuilder(item,index))
+            .tabBar(this.tabBarBuilder(item.name,index))
           }
         )
       }

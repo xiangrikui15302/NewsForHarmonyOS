@@ -1,12 +1,14 @@
 import { CommonConstants } from '../../../common/constants/CommonConstants'
+import NewModel from '../../../model/NewModel'
 @Component
 export default struct LittleVideoCard {
+  @Link newsModel:NewModel
   build() {
     Column({space:CommonConstants.SPACE_10}){
       Row({space:CommonConstants.SPACE_10}){
         Column({space:CommonConstants.SPACE_10}){
-          Text('我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题')
-          Text('我是作者我是作者   21小时前')
+          Text(this.newsModel.title)
+          Text(this.newsModel.author + '   21小时前')
             .fontSize(12)
             .fontColor($r('app.color.light_gray'))
         }

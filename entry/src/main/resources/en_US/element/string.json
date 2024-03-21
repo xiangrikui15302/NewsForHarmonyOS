@@ -11,6 +11,10 @@
     {
       "name": "EntryAbility_label",
       "value": "news"
+    },
+    {
+      "name": "dependency_reason",
+      "value": "Used to initiate network data requests."
     }
   ]
 }

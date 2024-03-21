@@ -1,13 +1,15 @@
 import { CommonConstants } from '../../../common/constants/CommonConstants'
+import NewModel from '../../../model/NewModel'
 @Component
 export default struct RightImage {
+  @Link newsModel:NewModel
   build() {
     Column(){
       Row({space:CommonConstants.SPACE_10}){
         Column(){
-          Text('我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容')
+          Text(this.newsModel.title)
 
-          Text('我是作者')
+          Text(this.newsModel.author)
             .fontColor($r('app.color.light_gray'))
             .fontSize(12)
             .margin({

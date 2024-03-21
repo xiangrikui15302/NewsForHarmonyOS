@@ -1,9 +1,11 @@
 import { CommonConstants } from '../../../common/constants/CommonConstants'
+import NewModel from '../../../model/NewModel'
 @Component
 export default struct BigVideoCard {
+  @Link newsModel:NewModel
   build() {
     Column({space:CommonConstants.SPACE_10}){
-      Text("我是标题我是标题我是标题我是标题我是标题我是标题我是标题")
+      Text(this.newsModel.title)
         .width('100%')
         .fontSize(20)
         .fontWeight(CommonConstants.FONT_WEIGHT_500)
@@ -11,7 +13,7 @@ export default struct BigVideoCard {
       this.videoBuidler()
 
       Row({space:CommonConstants.SPACE_10}){
-        Text('我是作者')
+        Text(this.newsModel.author)
           .fontSize(12)
           .fontColor($r('app.color.lightest_gray'))
         Text('2评')
