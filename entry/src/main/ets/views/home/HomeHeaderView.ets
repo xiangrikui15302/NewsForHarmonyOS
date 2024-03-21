@@ -1,4 +1,5 @@
 import { CommonConstants } from '../../common/constants/CommonConstants'
+import { NavigatorModel } from '../../viewmodel/NavigatorModel'
 
 @Component
 export default struct HomeHeaderView {
@@ -22,11 +23,15 @@ export default struct HomeHeaderView {
       .layoutWeight(1)
       .alignContent(Alignment.Start)
 
-      Image($r('app.media.xinshouhuodong'))
-        .width(40)
-        .onClick(()=>{
+      Navigator({ target: CommonConstants.WEB_PAGE_URI, type: NavigationType.Push }) {
+        Image($r('app.media.xinshouhuodong'))
+          .width(40)
 
-        })
+      }
+      .params({ path: CommonConstants.LOCAL_PATH, tips: '(本地)' } as NavigatorModel)
+
+
+
     }
     .width('90%')
     .height('100%')

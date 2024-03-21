@@ -30,25 +30,28 @@ export default struct HomeView {
     Column(){
       HomeHeaderView()
         .height(60)
-      Tabs(){
-        ForEach(
-          this.tabsArr,
-          (item:NewsCategoryModel,index)=>{
-            TabContent(){
-              NewsList({categoryId: this.categoryId})
+      if(this.tabsArr.length == 0) {
+        this.FailLayout()
+      }else {
+        Tabs(){
+          ForEach(
+            this.tabsArr,
+            (item:NewsCategoryModel,index)=>{
+              TabContent(){
+                NewsList({categoryId: this.categoryId})
+              }
+              .tabBar(this.tabBarBuilder(item.name,index))
             }
-            .tabBar(this.tabBarBuilder(item.name,index))
-          }
-        )
+          )
+        }
+        .barMode(BarMode.Scrollable)
+        .onChange(index => {
+          this.currentIndex = index
+        })
+        .width('100%')
+        .layoutWeight(1)
       }
-      .barMode(BarMode.Scrollable)
-      .onChange(index => {
-        this.currentIndex = index
-      })
-      // .vertical(false)
 
-      .width('100%')
-      .layoutWeight(1)
     }
     .width('100%')
     .height('100%')
@@ -65,5 +68,19 @@ export default struct HomeView {
         .fontColor(this.currentIndex === index ?$r('app.color.blue'):$r('app.color.gray'))
 
     }
+  }
+
+  @Builder FailLayout() {
+    Column(){
+      Image($r('app.media.none'))
+        .height(120)
+        .width(120)
+      Text('网络请求失败')
+        .fontSize(16)
+        .fontColor($r('app.color.light_gray'))
+        .margin({ top: 10 })
+    }
+    .layoutWeight(1)
+
   }
 }

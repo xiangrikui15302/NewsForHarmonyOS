@@ -4,7 +4,7 @@
     "pages/WelcomePage",
     "pages/Login",
     "pages/NewsWebVIewPage",
-    "pages/VideoPage"
-
+    "pages/VideoPage",
+    "pages/ActivityWebPage"
   ]
 }

@@ -2,6 +2,10 @@
 export class CommonConstants {
   static readonly RDB_NAME: string = 'HealthyLife.db'; // db name
 
+  static readonly WEB_PAGE_URI: string = 'pages/ActivityWebPage';
+
+  static readonly LOCAL_PATH: Resource = $rawfile('index.html');
+
   // THOUSANDTH
   static readonly THOUSANDTH_15: string = '1.5%'; // ‘1.5%’
   static readonly THOUSANDTH_12: string = '2.2%'; // ‘2.2%’
