@@ -13,5 +13,6 @@ export default class NewModel {
   author: string
   type:number
   images: string[]
+  contentUrl: string
 
 }

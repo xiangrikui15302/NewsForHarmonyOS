@@ -10,6 +10,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "央视新闻",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -22,6 +23,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -34,6 +36,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -46,6 +49,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -58,6 +62,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -70,6 +75,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "环球网国际",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9890150548364180775%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D'
 
     },
     {
@@ -77,9 +83,10 @@ exports.data = [
         title: "19岁网红被人刺伤住进ICU 家属凑款80万元医疗费",
         type:2,
         images: [
-            "/images/faca41195272.jpg"
+            "/images/a9f88d706914.jpg"
         ],
         author: "环球网国际",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9890150548364180775%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D'
 
     },
     {
@@ -112,6 +119,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "央视新闻",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -124,6 +132,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -136,6 +145,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -148,6 +158,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -160,6 +171,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "新华网",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9939762621688781296%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D&rec_src=52'
 
     },
     {
@@ -172,6 +184,7 @@ exports.data = [
             "/images/jpJmLxG6urQ.jpg",
         ],
         author: "环球网国际",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9890150548364180775%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D'
 
     },
     {
@@ -179,9 +192,10 @@ exports.data = [
         title: "19岁网红被人刺伤住进ICU 家属凑款80万元医疗费",
         type:2,
         images: [
-            "/images/faca41195272.jpg"
+            "/images/a9f88d706914.jpg"
         ],
         author: "环球网国际",
+        contentUrl:'https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9890150548364180775%22%2C%22sourceFrom%22%3A%22wise_feedlist%22%7D'
 
     },
     {

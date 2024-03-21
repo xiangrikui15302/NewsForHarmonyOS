@@ -6,9 +6,8 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@ohos/axios": "^2.2.0"
+    "@ohos/axios": "^2.2.0",
+    "@ohos/pulltorefresh": "^2.0.1"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }

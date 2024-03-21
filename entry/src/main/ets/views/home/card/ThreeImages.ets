@@ -1,5 +1,6 @@
 import thermal from '@ohos.thermal'
 import { CommonConstants } from '../../../common/constants/CommonConstants'
+import { HttpConstants } from '../../../common/constants/HttpConstants'
 import NewModel from '../../../model/NewModel'
 @Component
 export default struct ThreeImages {
@@ -29,7 +30,7 @@ export default struct ThreeImages {
       ForEach(
         this.newsModel.images,
         (string,index) => {
-          Image($r('app.media.icon'))
+          Image(HttpConstants.HOSTURL+ this.newsModel.images[index])
             .height(90)
             .width('30%')
         }

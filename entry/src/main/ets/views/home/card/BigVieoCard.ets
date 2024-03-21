@@ -1,4 +1,5 @@
 import { CommonConstants } from '../../../common/constants/CommonConstants'
+import { HttpConstants } from '../../../common/constants/HttpConstants'
 import NewModel from '../../../model/NewModel'
 @Component
 export default struct BigVideoCard {
@@ -32,7 +33,7 @@ export default struct BigVideoCard {
 
   @Builder videoBuidler(){
     Stack(){
-      Image($r('app.media.welcome'))
+      Image(HttpConstants.HOSTURL+ this.newsModel.images[0])
         .width('100%')
         .height(150)
       Image($r('app.media.bofang'))

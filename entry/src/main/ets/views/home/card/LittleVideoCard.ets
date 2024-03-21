@@ -1,4 +1,5 @@
 import { CommonConstants } from '../../../common/constants/CommonConstants'
+import { HttpConstants } from '../../../common/constants/HttpConstants'
 import NewModel from '../../../model/NewModel'
 @Component
 export default struct LittleVideoCard {
@@ -30,7 +31,7 @@ export default struct LittleVideoCard {
   }
   @Builder videoBuilder(){
     Stack(){
-      Image($r('app.media.welcome'))
+      Image(HttpConstants.HOSTURL+ this.newsModel.images[0])
         .width(100)
         .height(75)
       Row(){

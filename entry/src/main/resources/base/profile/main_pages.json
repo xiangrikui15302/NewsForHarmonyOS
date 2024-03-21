@@ -2,6 +2,9 @@
   "src": [
     "pages/Index",
     "pages/WelcomePage",
-    "pages/Login"
+    "pages/Login",
+    "pages/NewsWebVIewPage",
+    "pages/VideoPage"
+
   ]
 }
