@@ -8,9 +8,11 @@
 #### 6. 集成了pulltorefresh库实现下拉刷新以及上拉加载更多
 #### 7. 登录成功后，用户信息保存在Preference用户首选项中
 
-![Mar-22-2024 17-33-02.gif](..%2F..%2FDesktop%2FMar-22-2024%2017-33-02.gif)
 
 
+![Mar-22-2024 17-33-02](https://github.com/xiangrikui15302/NewsForHarmonyOS/assets/7685733/1a538893-b018-48e7-b5a1-4b7e85c876b6)
+
+![Mar-22-2024 17-33-55](https://github.com/xiangrikui15302/NewsForHarmonyOS/assets/7685733/901dce6e-e444-4553-bfe4-574de4620470)
 
 
 
