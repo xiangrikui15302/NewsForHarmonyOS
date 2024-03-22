@@ -1,8 +1,7 @@
 export class CommonConstants {
 }
 CommonConstants.RDB_NAME = 'HealthyLife.db'; // db name
-// static readonly WEB_PAGE_URI: string = 'pages/ActivityWebPage';
-CommonConstants.WEB_PAGE_URI = 'pages/lazyForEachGuide';
+CommonConstants.WEB_PAGE_URI = 'pages/ActivityWebPage';
 CommonConstants.LOCAL_PATH = { "id": 0, "type": 30000, params: ['index.html'], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" };
 // THOUSANDTH
 CommonConstants.THOUSANDTH_15 = '1.5%'; // ‘1.5%’

@@ -280,7 +280,7 @@ export default class NewsList extends ViewPU {
     }
     aboutToDisappear() {
         clearTimeout(this.timer);
-        // this.newsList.clear();
+        this.newsList.deleteDataAll();
     }
     rerender() {
         this.updateDirtyElements();
