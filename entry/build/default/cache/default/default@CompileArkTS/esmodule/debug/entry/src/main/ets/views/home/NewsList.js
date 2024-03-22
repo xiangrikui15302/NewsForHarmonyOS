@@ -1,7 +1,9 @@
+import { NewsType } from '@bundle:com.yuzhaopan.news/entry/ets/model/NewModel';
 import NewsListViewModel from '@bundle:com.yuzhaopan.news/entry/ets/viewmodel/NewsListViewModel';
 import NewsListItem from '@bundle:com.yuzhaopan.news/entry/ets/views/home/NewsListItem';
 import { PullToRefresh } from '@package:pkg_modules/.ohpm/@ohos+pulltorefresh@2.0.1/pkg_modules/@ohos/pulltorefresh/index';
 import toastUtil from '@bundle:com.yuzhaopan.news/entry/ets/common/utils/ToastUtil';
+import router from '@ohos:router';
 import BasicDataSource from '@bundle:com.yuzhaopan.news/entry/ets/common/utils/BasicDataSource';
 class NewsDataSource extends BasicDataSource {
     constructor() {
@@ -170,6 +172,7 @@ export default class NewsList extends ViewPU {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
             List.create({ space: 3, scroller: this.scroller });
             List.cachedCount(5);
+            List.width('90%');
             List.edgeEffect(EdgeEffect.None);
             if (!isInitialRender) {
                 List.pop();
@@ -208,6 +211,18 @@ export default class NewsList extends ViewPU {
                                     console.log(" onDisAppear: index=" + index + ' content= ' + this.newsList.getData(index));
                                 }
                             });
+                            __Common__.onClick(() => {
+                                if (item.type == NewsType.littleVideoCardType || item.type == NewsType.bigVideoCardType) {
+                                    router.pushUrl({
+                                        url: 'pages/VideoPage'
+                                    });
+                                    return;
+                                }
+                                router.pushUrl({
+                                    url: 'pages/NewsWebVIewPage',
+                                    params: { webUrl: item.contentUrl }
+                                });
+                            });
                             if (!isInitialRender) {
                                 __Common__.pop();
                             }
@@ -243,6 +258,18 @@ export default class NewsList extends ViewPU {
                                 if (index) {
                                     console.log(" onDisAppear: index=" + index + ' content= ' + this.newsList.getData(index));
                                 }
+                            });
+                            __Common__.onClick(() => {
+                                if (item.type == NewsType.littleVideoCardType || item.type == NewsType.bigVideoCardType) {
+                                    router.pushUrl({
+                                        url: 'pages/VideoPage'
+                                    });
+                                    return;
+                                }
+                                router.pushUrl({
+                                    url: 'pages/NewsWebVIewPage',
+                                    params: { webUrl: item.contentUrl }
+                                });
                             });
                             if (!isInitialRender) {
                                 __Common__.pop();

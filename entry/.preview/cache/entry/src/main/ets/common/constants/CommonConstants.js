@@ -1,6 +1,8 @@
 export class CommonConstants {
 }
 CommonConstants.RDB_NAME = 'HealthyLife.db'; // db name
+CommonConstants.WEB_PAGE_URI = 'pages/ActivityWebPage';
+CommonConstants.LOCAL_PATH = { "id": 0, "type": 30000, params: ['index.html'], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" };
 // THOUSANDTH
 CommonConstants.THOUSANDTH_15 = '1.5%'; // ‘1.5%’
 CommonConstants.THOUSANDTH_12 = '2.2%'; // ‘2.2%’
@@ -62,6 +64,7 @@ CommonConstants.SPACE_12 = 12;
 // global data key
 CommonConstants.H_STORE = 'newsForHarmonyOS';
 CommonConstants.LoginKey = 'login';
+CommonConstants.UserNameKey = 'userName';
 CommonConstants.RECORD_DATE = 'selectedDate';
 CommonConstants.PACKAGE_NAME = 'com.itheima.healthylife';
 CommonConstants.ENTRY_ABILITY = 'EntryAbility';

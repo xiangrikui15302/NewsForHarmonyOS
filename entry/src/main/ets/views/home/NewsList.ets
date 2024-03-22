@@ -136,9 +136,23 @@ export default struct NewsList {
                 console.log(" onDisAppear: index=" + index + ' content= ' + this.newsList.getData(index));
               }
             })
-        }
+            .onClick(()=>{
+              if(item.type == NewsType.littleVideoCardType || item.type == NewsType.bigVideoCardType ){
+                router.pushUrl({
+                  url:'pages/VideoPage'
+                })
+                return
+              }
+              router.pushUrl({
+                url:'pages/NewsWebVIewPage',
+                params:{webUrl:item.contentUrl}
+              })
+
+            })
+          }
       }, (item: string) => item);
     }.cachedCount(5)
+    .width('90%')
     .edgeEffect(EdgeEffect.None) // 必须设置列表为滑动到边缘无效果
   }
   aboutToDisappear() {

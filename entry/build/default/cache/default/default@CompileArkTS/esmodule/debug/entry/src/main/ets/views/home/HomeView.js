@@ -208,7 +208,7 @@ export default class HomeView extends ViewPU {
         });
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-            Image.create({ "id": 16777242, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
+            Image.create({ "id": 16777245, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
             Image.height(120);
             Image.width(120);
             if (!isInitialRender) {

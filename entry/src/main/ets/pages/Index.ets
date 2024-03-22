@@ -14,14 +14,16 @@ struct Index {
       Tabs({
         barPosition: BarPosition.End,
       }) {
-        TabContent(){
+        TabContent() {
           HomeView()
-
         }
         .tabBar(this.tabBarBuilder('新闻',$r('app.media.tabbarhome'),0))
 
         TabContent(){
-          VideoView()
+
+          if (this.currentIndex == 1){
+            VideoView()
+          }
         }
         .tabBar(this.tabBarBuilder('视频',$r('app.media.video_icon'),1))
 

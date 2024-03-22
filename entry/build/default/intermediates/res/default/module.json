@@ -23,7 +23,7 @@
                 "descriptionId" : 16777218,
                 "exported" : true,
                 "icon" : "$media:icon",
-                "iconId" : 16777240,
+                "iconId" : 16777241,
                 "label" : "$string:EntryAbility_label",
                 "labelId" : 16777219,
                 "name" : "EntryAbility",
@@ -44,7 +44,7 @@
                 "startWindowBackground" : "$color:start_window_background",
                 "startWindowBackgroundId" : 16777234,
                 "startWindowIcon" : "$media:icon",
-                "startWindowIconId" : 16777240
+                "startWindowIconId" : 16777241
             }
         ],
         "compileMode" : "esmodule",

@@ -64,6 +64,7 @@ CommonConstants.SPACE_12 = 12;
 // global data key
 CommonConstants.H_STORE = 'newsForHarmonyOS';
 CommonConstants.LoginKey = 'login';
+CommonConstants.UserNameKey = 'userName';
 CommonConstants.RECORD_DATE = 'selectedDate';
 CommonConstants.PACKAGE_NAME = 'com.itheima.healthylife';
 CommonConstants.ENTRY_ABILITY = 'EntryAbility';

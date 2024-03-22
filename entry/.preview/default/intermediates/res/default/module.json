@@ -42,7 +42,7 @@
                 ],
                 "srcEntry" : "./ets/entryability/EntryAbility.ts",
                 "startWindowBackground" : "$color:start_window_background",
-                "startWindowBackgroundId" : 16777240,
+                "startWindowBackgroundId" : 16777246,
                 "startWindowIcon" : "$media:icon",
                 "startWindowIconId" : 16777222
             }

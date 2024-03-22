@@ -1,0 +1,22 @@
+export const mineContent = [
+  {
+    icon:$r('app.media.mywallet'),
+    name:'我的钱包'
+  },
+  {
+    icon:$r('app.media.shoucang'),
+    name:'收藏'
+  },
+  {
+    icon:$r('app.media.lishi'),
+    name:'历史'
+  },
+  {
+    icon:$r('app.media.shezhi'),
+    name:'设置'
+  },
+  {
+    icon:$r('app.media.guanyuwomen'),
+    name:'关于我们'
+  }
+]

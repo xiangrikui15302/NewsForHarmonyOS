@@ -1,6 +1,8 @@
 const shopData = require('../models/shopData')
 const newData = require('../models/newData')
 const categoryData = require('../models/categoryData')
+const bannerData = require('../models/bannerData')
+const videoData = require('../models/videoData')
 
 exports.get_shop_list = (req, res) => {
     let pageNo = req.query.pageNo || 1
@@ -23,4 +25,14 @@ exports.get_new_list = (req, res) => {
 exports.get_category_list = (req, res) => {
 
     res.send(categoryData.data)
+}
+
+exports.get_banner_list = (req, res) => {
+
+    res.send(bannerData.data)
+}
+
+exports.get_video_list = (req, res) => {
+
+    res.send(videoData.data)
 }

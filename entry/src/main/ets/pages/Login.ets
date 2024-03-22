@@ -50,6 +50,7 @@ struct Login {
       return
     }
     await PreferenceUtil.putPreferenceValue(CommonConstants.LoginKey,true)
+    await PreferenceUtil.putPreferenceValue(CommonConstants.UserNameKey,this.username)
     router.replaceUrl({
       url:'pages/Index'
     })

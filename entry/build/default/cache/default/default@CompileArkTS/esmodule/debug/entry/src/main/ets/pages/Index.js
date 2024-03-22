@@ -82,7 +82,7 @@ class Index extends ViewPU {
                 }
             });
             TabContent.tabBar({ builder: () => {
-                    this.tabBarBuilder.call(this, '新闻', { "id": 16777243, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" }, 0);
+                    this.tabBarBuilder.call(this, '新闻', { "id": 16777248, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" }, 0);
                 } });
             if (!isInitialRender) {
                 TabContent.pop();
@@ -93,21 +93,37 @@ class Index extends ViewPU {
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
             TabContent.create(() => {
-                {
-                    this.observeComponentCreation((elmtId, isInitialRender) => {
-                        ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-                        if (isInitialRender) {
-                            ViewPU.create(new VideoView(this, {}, undefined, elmtId));
-                        }
-                        else {
-                            this.updateStateVarsOfChildByElmtId(elmtId, {});
-                        }
-                        ViewStackProcessor.StopGetAccessRecording();
-                    });
-                }
+                this.observeComponentCreation((elmtId, isInitialRender) => {
+                    ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
+                    If.create();
+                    if (this.currentIndex == 1) {
+                        this.ifElseBranchUpdateFunction(0, () => {
+                            {
+                                this.observeComponentCreation((elmtId, isInitialRender) => {
+                                    ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
+                                    if (isInitialRender) {
+                                        ViewPU.create(new VideoView(this, {}, undefined, elmtId));
+                                    }
+                                    else {
+                                        this.updateStateVarsOfChildByElmtId(elmtId, {});
+                                    }
+                                    ViewStackProcessor.StopGetAccessRecording();
+                                });
+                            }
+                        });
+                    }
+                    else {
+                        If.branchId(1);
+                    }
+                    if (!isInitialRender) {
+                        If.pop();
+                    }
+                    ViewStackProcessor.StopGetAccessRecording();
+                });
+                If.pop();
             });
             TabContent.tabBar({ builder: () => {
-                    this.tabBarBuilder.call(this, '视频', { "id": 16777244, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" }, 1);
+                    this.tabBarBuilder.call(this, '视频', { "id": 16777249, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" }, 1);
                 } });
             if (!isInitialRender) {
                 TabContent.pop();
@@ -132,7 +148,7 @@ class Index extends ViewPU {
                 }
             });
             TabContent.tabBar({ builder: () => {
-                    this.tabBarBuilder.call(this, '我的', { "id": 16777241, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" }, 2);
+                    this.tabBarBuilder.call(this, '我的', { "id": 16777243, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" }, 2);
                 } });
             if (!isInitialRender) {
                 TabContent.pop();

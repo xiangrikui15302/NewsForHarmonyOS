@@ -6,6 +6,11 @@ struct VideoPage {
   private controller: VideoController = new VideoController();
   @State durationTime: number = 0
   @State currentTime: number = 0
+
+  onPageHide(){
+    console.log('3wewe');
+  }
+
   build() {
     Row() {
       Stack({ alignContent: Alignment.Bottom }) {

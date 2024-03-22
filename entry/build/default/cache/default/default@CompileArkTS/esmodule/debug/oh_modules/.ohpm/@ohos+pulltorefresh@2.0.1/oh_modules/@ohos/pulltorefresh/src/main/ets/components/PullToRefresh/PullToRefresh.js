@@ -512,7 +512,7 @@ export class PullToRefresh extends ViewPU {
                     });
                     this.observeComponentCreation((elmtId, isInitialRender) => {
                         ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-                        Image.create({ "id": 16777250, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
+                        Image.create({ "id": 16777255, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
                         Image.width('100%');
                         Image.height('100%');
                         Image.objectFit(ImageFit.Contain);
@@ -528,7 +528,7 @@ export class PullToRefresh extends ViewPU {
                     });
                     this.observeComponentCreation((elmtId, isInitialRender) => {
                         ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-                        Image.create({ "id": 16777249, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
+                        Image.create({ "id": 16777254, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
                         Image.width('100%');
                         Image.height('100%');
                         Image.objectFit(ImageFit.Contain);

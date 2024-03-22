@@ -49,6 +49,7 @@ class Login extends ViewPU {
             return;
         }
         await PreferenceUtil.putPreferenceValue(CommonConstants.LoginKey, true);
+        await PreferenceUtil.putPreferenceValue(CommonConstants.UserNameKey, this.username);
         router.replaceUrl({
             url: 'pages/Index'
         });
@@ -76,7 +77,7 @@ class Login extends ViewPU {
         });
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-            Image.create({ "id": 16777240, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
+            Image.create({ "id": 16777241, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
             Image.width(100);
             Image.margin({
                 top: 150

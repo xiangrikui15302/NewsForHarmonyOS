@@ -98,6 +98,7 @@ export class CommonConstants {
   // global data key
   static readonly H_STORE: string = 'newsForHarmonyOS';
   static readonly LoginKey: string = 'login';
+  static readonly UserNameKey: string = 'userName';
 
   static readonly RECORD_DATE: string = 'selectedDate';
 

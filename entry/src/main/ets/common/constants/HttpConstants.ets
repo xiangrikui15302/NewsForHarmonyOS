@@ -3,4 +3,6 @@ export class HttpConstants {
   static readonly NEWSPATH: string = '/news';
   static readonly CategoryListUrl: string = '/category_list/';
   static readonly NewsListUrl: string = '/news_list';
+  static readonly BannerUrl: string = '/banner_list';
+  static readonly VideoListUrl: string = '/video_list';
 }

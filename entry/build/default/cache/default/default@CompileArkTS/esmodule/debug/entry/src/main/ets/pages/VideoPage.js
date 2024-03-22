@@ -66,6 +66,9 @@ class VideoPage extends ViewPU {
     set currentTime(newValue) {
         this.__currentTime.set(newValue);
     }
+    onPageHide() {
+        console.log('3wewe');
+    }
     initialRender() {
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
@@ -129,7 +132,7 @@ class VideoPage extends ViewPU {
                     });
                     this.observeComponentCreation((elmtId, isInitialRender) => {
                         ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-                        Image.create({ "id": 16777245, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
+                        Image.create({ "id": 16777250, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
                         Image.width('100%');
                         Image.height(200);
                         if (!isInitialRender) {
@@ -139,7 +142,7 @@ class VideoPage extends ViewPU {
                     });
                     this.observeComponentCreation((elmtId, isInitialRender) => {
                         ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-                        Image.create({ "id": 16777239, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
+                        Image.create({ "id": 16777240, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
                         Image.width(30);
                         Image.onClick(() => {
                             this.isClicked = true;
@@ -175,7 +178,7 @@ class VideoPage extends ViewPU {
         });
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-            Image.create(this.isPlay ? { "id": 16777238, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" } : { "id": 16777239, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
+            Image.create(this.isPlay ? { "id": 16777239, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" } : { "id": 16777240, "type": 20000, params: [], "bundleName": "com.yuzhaopan.news", "moduleName": "entry" });
             Image.width(30);
             Image.onClick(() => {
                 this.isClicked = true;
