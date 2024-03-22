@@ -1,5 +1,8 @@
 # NewsForHarmonyOS
-一款新闻资讯app
+
+### 一款新闻资讯app   
+需首先进入shopServer目录下执行npm init、npm start命令，启动一下本地server
+
 #### 1. 使用了axios库获取网络数据进行展示
 #### 2. LazyForEach实现数据懒加载，即使释放资源
 #### 3. 活动页面通过Web实现了h5的展示，并且实现了原生和h5的交互
