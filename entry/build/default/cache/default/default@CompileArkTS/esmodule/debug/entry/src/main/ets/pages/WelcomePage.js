@@ -1,6 +1,4 @@
 import router from '@ohos:router';
-import { CommonConstants } from '@bundle:com.yuzhaopan.news/entry/ets/common/constants/CommonConstants';
-import PreferenceUtil from '@bundle:com.yuzhaopan.news/entry/ets/common/utils/PreferenceUtil';
 class WelcomePage extends ViewPU {
     constructor(parent, params, __localStorage, elmtId = -1) {
         super(parent, __localStorage, elmtId);
@@ -29,14 +27,13 @@ class WelcomePage extends ViewPU {
         this.__message.set(newValue);
     }
     async aboutToAppear() {
-        let isLogin = await PreferenceUtil.getPreferenceValue(CommonConstants.LoginKey, false);
-        console.log(isLogin + " isLogin");
-        if (isLogin) {
-            this.jumpToPage('pages/Index');
-        }
-        else {
-            this.jumpToPage('pages/Login');
-        }
+        // let isLogin = await PreferenceUtil.getPreferenceValue(CommonConstants.LoginKey,false)
+        // console.log(isLogin+" isLogin")
+        // if(isLogin){
+        this.jumpToPage('pages/Index');
+        // } else {
+        //   this.jumpToPage('pages/Login')
+        // }
     }
     initialRender() {
         this.observeComponentCreation((elmtId, isInitialRender) => {

@@ -5,6 +5,7 @@
     "pages/Login",
     "pages/NewsWebVIewPage",
     "pages/VideoPage",
-    "pages/ActivityWebPage"
+    "pages/ActivityWebPage",
+    "pages/lazyForEachGuide"
   ]
 }

@@ -2,7 +2,8 @@
 export class CommonConstants {
   static readonly RDB_NAME: string = 'HealthyLife.db'; // db name
 
-  static readonly WEB_PAGE_URI: string = 'pages/ActivityWebPage';
+  // static readonly WEB_PAGE_URI: string = 'pages/ActivityWebPage';
+  static readonly WEB_PAGE_URI: string = 'pages/lazyForEachGuide';
 
   static readonly LOCAL_PATH: Resource = $rawfile('index.html');
 

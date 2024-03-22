@@ -13,13 +13,13 @@ struct WelcomePage {
 
   async aboutToAppear(){
 
-    let isLogin = await PreferenceUtil.getPreferenceValue(CommonConstants.LoginKey,false)
-    console.log(isLogin+" isLogin")
-    if(isLogin){
+    // let isLogin = await PreferenceUtil.getPreferenceValue(CommonConstants.LoginKey,false)
+    // console.log(isLogin+" isLogin")
+    // if(isLogin){
       this.jumpToPage('pages/Index')
-    } else {
-      this.jumpToPage('pages/Login')
-    }
+    // } else {
+    //   this.jumpToPage('pages/Login')
+    // }
 
   }
 

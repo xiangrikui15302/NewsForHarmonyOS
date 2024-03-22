@@ -22,7 +22,7 @@
       "error": false
     },
     "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/pages/WelcomePage.ets": {
-      "mtimeMs": 1711073727455.4727,
+      "mtimeMs": 1711082929776.0144,
       "children": [
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/constants/CommonConstants.ets",
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/utils/PreferenceUtil.ts"
@@ -316,13 +316,14 @@
       "error": false
     },
     "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/views/home/NewsList.ets": {
-      "mtimeMs": 1711073727456.6045,
+      "mtimeMs": 1711084081673.6624,
       "children": [
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/model/NewModel.ets",
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/viewmodel/NewsListViewModel.ets",
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/views/home/NewsListItem.ets",
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/oh_modules/.ohpm/@ohos+pulltorefresh@2.0.1/oh_modules/@ohos/pulltorefresh/index.ets",
-        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/utils/ToastUtil.ets"
+        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/utils/ToastUtil.ets",
+        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/utils/BasicDataSource.ets"
       ],
       "parent": [
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/views/home/HomeView.ets"
@@ -502,7 +503,8 @@
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/oh_modules/.ohpm/@ohos+pulltorefresh@2.0.1/oh_modules/@ohos/pulltorefresh/src/main/ets/components/PullToRefresh/PullToRefresh.ets"
       ],
       "parent": [
-        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/views/home/NewsList.ets"
+        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/views/home/NewsList.ets",
+        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/pages/lazyForEachGuide.ets"
       ],
       "error": false
     },
@@ -546,7 +548,7 @@
       "error": false
     },
     "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/constants/CommonConstants.ets": {
-      "mtimeMs": 1711073727452.4849,
+      "mtimeMs": 1711081113503.87,
       "children": [],
       "parent": [
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/utils/PreferenceUtil.ts",
@@ -569,6 +571,22 @@
       "parent": [
         "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/views/home/HomeHeaderView.ets"
       ],
+      "error": false
+    },
+    "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/common/utils/BasicDataSource.ets": {
+      "mtimeMs": 1711080247540.4695,
+      "children": [],
+      "parent": [
+        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/views/home/NewsList.ets"
+      ],
+      "error": false
+    },
+    "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/entry/src/main/ets/pages/lazyForEachGuide.ets": {
+      "mtimeMs": 1711081939484.293,
+      "children": [
+        "/Users/zhangyanjie/DevEcoStudioProjects/NewsForHarmonyOS/oh_modules/.ohpm/@ohos+pulltorefresh@2.0.1/oh_modules/@ohos/pulltorefresh/index.ets"
+      ],
+      "parent": [],
       "error": false
     }
   }

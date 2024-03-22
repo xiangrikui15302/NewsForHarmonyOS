@@ -1,18 +1,53 @@
-import { NewsType } from '@bundle:com.yuzhaopan.news/entry/ets/model/NewModel';
 import NewsListViewModel from '@bundle:com.yuzhaopan.news/entry/ets/viewmodel/NewsListViewModel';
 import NewsListItem from '@bundle:com.yuzhaopan.news/entry/ets/views/home/NewsListItem';
 import { PullToRefresh } from '@package:pkg_modules/.ohpm/@ohos+pulltorefresh@2.0.1/pkg_modules/@ohos/pulltorefresh/index';
 import toastUtil from '@bundle:com.yuzhaopan.news/entry/ets/common/utils/ToastUtil';
-import router from '@ohos:router';
+import BasicDataSource from '@bundle:com.yuzhaopan.news/entry/ets/common/utils/BasicDataSource';
+class NewsDataSource extends BasicDataSource {
+    constructor() {
+        super(...arguments);
+        this.dataArray = [];
+    }
+    totalCount() {
+        return this.dataArray.length;
+    }
+    getData(index) {
+        return this.dataArray[index];
+    }
+    addData(index, data) {
+        this.dataArray.splice(index, 0, data);
+        this.notifyDataAdd(index);
+    }
+    pushData(data) {
+        this.dataArray.push(data);
+        this.notifyDataAdd(this.dataArray.length - 1);
+    }
+    pushDatas(datas) {
+        datas.forEach(data => {
+            this.pushData(data);
+        });
+    }
+    deleteData(index) {
+        this.dataArray.splice(index, 1);
+        this.notifyDataDelete(index);
+    }
+    deleteDataAll() {
+        this.dataArray = [];
+    }
+    reloadData() {
+        this.notifyDataReload();
+    }
+}
 export default class NewsList extends ViewPU {
     constructor(parent, params, __localStorage, elmtId = -1) {
         super(parent, __localStorage, elmtId);
         this.__categoryId = new SynchedPropertySimpleOneWayPU(params.categoryId, this, "categoryId");
-        this.__newsList = new ObservedPropertyObjectPU([]
+        this.__newsList = new ObservedPropertyObjectPU(new NewsDataSource()
         // 需绑定列表或宫格组件
         , this, "newsList");
         this.scroller = new Scroller();
         this.pageNo = 1;
+        this.timer = null;
         this.setInitiallyProvidedValue(params);
     }
     setInitiallyProvidedValue(params) {
@@ -24,6 +59,9 @@ export default class NewsList extends ViewPU {
         }
         if (params.pageNo !== undefined) {
             this.pageNo = params.pageNo;
+        }
+        if (params.timer !== undefined) {
+            this.timer = params.timer;
         }
     }
     updateStateVars(params) {
@@ -52,18 +90,15 @@ export default class NewsList extends ViewPU {
         this.__newsList.set(newValue);
     }
     async aboutToAppear() {
-        this.newsList = await NewsListViewModel.getNewsListByCategory(this.categoryId, 1);
+        let newsList = await NewsListViewModel.getNewsListByCategory(this.categoryId, 1);
+        this.newsList.pushDatas(newsList);
     }
     initialRender() {
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-            Row.create();
-            Row.justifyContent(FlexAlign.Center);
-            Row.alignItems(VerticalAlign.Top);
-            Row.width('100%');
-            Row.height('100%');
+            Column.create();
             if (!isInitialRender) {
-                Row.pop();
+                Column.pop();
             }
             ViewStackProcessor.StopGetAccessRecording();
         });
@@ -88,7 +123,8 @@ export default class NewsList extends ViewPU {
                                 NewsListViewModel.getNewsListByCategory(this.categoryId, this.pageNo)
                                     .then(newsList => {
                                     resolve('刷新成功');
-                                    this.newsList = newsList;
+                                    this.newsList.deleteDataAll();
+                                    this.newsList.pushDatas(newsList);
                                 })
                                     .catch(error => {
                                     reject(error);
@@ -101,19 +137,19 @@ export default class NewsList extends ViewPU {
                             return new Promise((resolve, reject) => {
                                 NewsListViewModel.getNewsListByCategory(this.categoryId, this.pageNo)
                                     .then(newsList => {
+                                    resolve('');
                                     if (newsList.length === 0) {
                                         this.pageNo -= 1;
-                                        resolve('');
                                         toastUtil.showToast('没有更多了');
                                     }
                                     else {
                                         resolve('');
-                                        this.newsList.push(...newsList);
+                                        this.newsList.pushDatas(newsList);
                                     }
                                 })
                                     .catch(error => {
-                                    reject(error);
                                     this.pageNo -= 1;
+                                    reject(error);
                                 });
                             });
                         },
@@ -127,41 +163,27 @@ export default class NewsList extends ViewPU {
                 ViewStackProcessor.StopGetAccessRecording();
             });
         }
-        Row.pop();
+        Column.pop();
     }
     getListView(parent = null) {
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-            List.create({ scroller: this.scroller });
+            List.create({ space: 3, scroller: this.scroller });
+            List.cachedCount(5);
             List.edgeEffect(EdgeEffect.None);
-            List.width('90%');
             if (!isInitialRender) {
                 List.pop();
             }
             ViewStackProcessor.StopGetAccessRecording();
         });
-        this.observeComponentCreation((elmtId, isInitialRender) => {
-            ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
-            ForEach.create();
-            const forEachItemGenFunction = (_item, index) => {
-                const news = _item;
+        {
+            const __lazyForEachItemGenFunction = (_item, index) => {
+                const item = _item;
                 {
-                    const isLazyCreate = true;
+                    const isLazyCreate = (globalThis.__lazyForEachItemGenFunction !== undefined) && true;
                     const itemCreation = (elmtId, isInitialRender) => {
                         ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
                         ListItem.create(deepRenderFunction, isLazyCreate);
-                        ListItem.onClick(() => {
-                            if (news.type == NewsType.littleVideoCardType || news.type == NewsType.bigVideoCardType) {
-                                router.pushUrl({
-                                    url: 'pages/VideoPage'
-                                });
-                                return;
-                            }
-                            router.pushUrl({
-                                url: 'pages/NewsWebVIewPage',
-                                params: { webUrl: news.contentUrl }
-                            });
-                        });
                         if (!isInitialRender) {
                             ListItem.pop();
                         }
@@ -173,11 +195,29 @@ export default class NewsList extends ViewPU {
                     };
                     const observedDeepRender = () => {
                         this.observeComponentCreation(itemCreation);
+                        this.observeComponentCreation((elmtId, isInitialRender) => {
+                            ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
+                            __Common__.create();
+                            __Common__.onAppear(() => {
+                                if (index) {
+                                    console.log(" onAppear: index=" + index + ' content= ' + this.newsList.getData(index));
+                                }
+                            });
+                            __Common__.onDisAppear(() => {
+                                if (index) {
+                                    console.log(" onDisAppear: index=" + index + ' content= ' + this.newsList.getData(index));
+                                }
+                            });
+                            if (!isInitialRender) {
+                                __Common__.pop();
+                            }
+                            ViewStackProcessor.StopGetAccessRecording();
+                        });
                         {
                             this.observeComponentCreation((elmtId, isInitialRender) => {
                                 ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
                                 if (isInitialRender) {
-                                    ViewPU.create(new NewsListItem(this, { newsModel: news }, undefined, elmtId));
+                                    ViewPU.create(new NewsListItem(this, { newsModel: item }, undefined, elmtId));
                                 }
                                 else {
                                     this.updateStateVarsOfChildByElmtId(elmtId, {});
@@ -185,16 +225,35 @@ export default class NewsList extends ViewPU {
                                 ViewStackProcessor.StopGetAccessRecording();
                             });
                         }
+                        __Common__.pop();
                         ListItem.pop();
                     };
                     const deepRenderFunction = (elmtId, isInitialRender) => {
                         itemCreation(elmtId, isInitialRender);
                         this.updateFuncByElmtId.set(elmtId, itemCreation);
+                        this.observeComponentCreation((elmtId, isInitialRender) => {
+                            ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
+                            __Common__.create();
+                            __Common__.onAppear(() => {
+                                if (index) {
+                                    console.log(" onAppear: index=" + index + ' content= ' + this.newsList.getData(index));
+                                }
+                            });
+                            __Common__.onDisAppear(() => {
+                                if (index) {
+                                    console.log(" onDisAppear: index=" + index + ' content= ' + this.newsList.getData(index));
+                                }
+                            });
+                            if (!isInitialRender) {
+                                __Common__.pop();
+                            }
+                            ViewStackProcessor.StopGetAccessRecording();
+                        });
                         {
                             this.observeComponentCreation((elmtId, isInitialRender) => {
                                 ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
                                 if (isInitialRender) {
-                                    ViewPU.create(new NewsListItem(this, { newsModel: news }, undefined, elmtId));
+                                    ViewPU.create(new NewsListItem(this, { newsModel: item }, undefined, elmtId));
                                 }
                                 else {
                                     this.updateStateVarsOfChildByElmtId(elmtId, {});
@@ -202,6 +261,7 @@ export default class NewsList extends ViewPU {
                                 ViewStackProcessor.StopGetAccessRecording();
                             });
                         }
+                        __Common__.pop();
                         ListItem.pop();
                     };
                     if (isLazyCreate) {
@@ -212,14 +272,15 @@ export default class NewsList extends ViewPU {
                     }
                 }
             };
-            this.forEachUpdateFunction(elmtId, this.newsList, forEachItemGenFunction, undefined, true, false);
-            if (!isInitialRender) {
-                ForEach.pop();
-            }
-            ViewStackProcessor.StopGetAccessRecording();
-        });
-        ForEach.pop();
+            const __lazyForEachItemIdFunc = (item) => item;
+            LazyForEach.create("1", this, this.newsList, __lazyForEachItemGenFunction, __lazyForEachItemIdFunc);
+            LazyForEach.pop();
+        }
         List.pop();
+    }
+    aboutToDisappear() {
+        clearTimeout(this.timer);
+        // this.newsList.clear();
     }
     rerender() {
         this.updateDirtyElements();
