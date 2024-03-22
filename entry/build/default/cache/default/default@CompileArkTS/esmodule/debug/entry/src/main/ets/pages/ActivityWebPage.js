@@ -125,6 +125,7 @@ class ActivityWebPage extends ViewPU {
             });
             // Web component loading H5.
             Web.onProgressChange((event) => {
+                // 加载完成，取消定时器
                 if ((event === null || event === void 0 ? void 0 : event.newProgress) === 100) {
                     this.isLoading = false;
                     clearInterval(this.intervalLoading);
@@ -140,7 +141,7 @@ class ActivityWebPage extends ViewPU {
         this.observeComponentCreation((elmtId, isInitialRender) => {
             ViewStackProcessor.StartGetAccessRecordingFor(elmtId);
             If.create();
-            // 进度条
+            // web加载等待框
             if (this.isLoading) {
                 this.ifElseBranchUpdateFunction(0, () => {
                     this.observeComponentCreation((elmtId, isInitialRender) => {
